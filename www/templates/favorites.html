@@ -1,0 +1,21 @@
+<ion-view view-title="Favorites">
+    <ion-nav-buttons side="secondary">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="toggleDelete()"></button>
+      </div>
+    </ion-nav-buttons>
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="app in apps" href="#/app/browseapps/{{app._id}}" class="item-thumbnail-left" on-swipe-left="deleteFavorite(app._id)">
+        <img ng-src="{{app.image_url}}">
+        <h2>{{app.title}}
+        <span style="font-size:75%">{{app.tags}}</span>
+        <span class="badge badge-assertive">{{app.category}}</span></h2>
+        <p>{{app.description}}</p>
+        <ion-delete-button class="ion-minus-circled" ng-click="deleteFavorite(app._id)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

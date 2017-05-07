@@ -1,0 +1,40 @@
+<ion-view view-title="Menu">
+   <div class="tabs-striped tabs-color-dark">
+    <ul class="tabs">
+        <li ng-class="{active:isSelected(1)}" class="tab-item">
+            <a ng-click="select(1)">All apps</a></li>
+        <li ng-class="{active:isSelected(2)}" class="tab-item">
+            <a ng-click="select(2)">Apps</a></li>
+        <li ng-class="{active:isSelected(3)}" class="tab-item">
+            <a ng-click="select(3)">Scripts</a></li>
+        <li ng-class="{active:isSelected(4)}" class="tab-item">
+            <a  ng-click="select(4)">Web Services</a></li>
+    </ul>
+  </div>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="app in apps | filter:{category: filtText}" href="#/app/browseapps/{{app._id}}" class="item-thumbnail-left">
+        <img ng-src="{{app.image_url}}">
+        <h2>{{app.title}}</h2>
+        <div class="item-text-wrap">
+          <p>{{app.description}}</p>
+        </div>
+
+        <button ion-button item-right icon-left ng-click="addFavorite(app._id)">
+          Add to favorites
+        </button>
+
+        <div>
+          <ion-label>{{app.category}}</ion-label>
+          <!-- <ion-badge color="dark" class="badge" ng-repeat="tag in app.tags"> {{tag}}</ion-badge> -->
+          <ion-badge color="royal" ng-repeat="tag in app.tags"> {{tag}}</ion-badge>
+        </div>
+        <!--
+        <ion-option-button class="button-assertive icon ion-plus-circled" ng-click="addFavorite(app._id)">
+            Add to favorites
+        </ion-option-button>
+      -->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

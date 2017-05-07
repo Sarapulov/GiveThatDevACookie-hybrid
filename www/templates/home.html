@@ -1,0 +1,16 @@
+<ion-view view-title="GiveThatDevACookie">
+  <ion-content>
+
+    <div class="card" ng-repeat="app in apps">
+        <div class="item item-divider">
+            {{app.title}}
+            <span class="badge">{{app.category}}</span>
+        </div>
+        <div class="item item-thumbnail-left item-text-wrap">
+            <img ng-src="{{app.image_url}}" alt="App image">
+            <p>{{app.description}}</p>
+        </div>
+    </div>
+
+  </ion-content>
+</ion-view>

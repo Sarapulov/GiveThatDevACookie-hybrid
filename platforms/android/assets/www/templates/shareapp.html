@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Share app</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeShareApp()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="shareApp()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">App title</span>
+          <input type="text" ng-model="newApp.appTitle">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">App description</span>
+          <input type="text" ng-model="newApp.appDescription">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">App icon URL</span>
+          <input type="email" ng-model="newApp.appImageUrl">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">App download URL</span>
+          <input type="text" ng-model="newApp.appDownloadUrl">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">App category</span>
+          <select class="form-control" ng-model="newApp.appCategory">
+            <option ng-repeat="cat in appCategories" value="{{cat.value}}">{{cat.label}}</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">App tags</span>
+          <input type="text" ng-model="newApp.appTags">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-click="shareApp()">Share app</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
